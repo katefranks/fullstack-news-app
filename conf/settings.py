@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    
+
     'fullstack-news-app-katefranks.herokuapp.com',
     '127.0.0.1',
 ]
@@ -47,10 +47,20 @@ INSTALLED_APPS = [
 
     #3rd party
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
+
 
     #local
     # passing a pathway to the Accounts Config class. If you don't tell settings about project, then it won't know about it.
+    'api.apps.ApiConfig',
     'accounts.apps.AccountsConfig',
+    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +162,7 @@ AUTH_USER_MODEL = 'accounts.User'  #overriding djangos default user. Best practi
 # media root says from our base directory we're going to have a media directory.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
