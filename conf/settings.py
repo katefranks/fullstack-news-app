@@ -27,9 +27,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-https://git.heroku.com/fullstack-news-app-katefranks.git
-
 ALLOWED_HOSTS = [
     'fullstack-chat-app-katefranks.herokuapp.com',
     '127.0.0.1',
