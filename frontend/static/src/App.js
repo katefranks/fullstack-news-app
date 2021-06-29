@@ -52,7 +52,7 @@ async handleRegistration(user){
   };
 
   const handleError = (err) => console.warn(err);
-  const response = await fetch('/rest-auth/ registration/', options).catch(handleError);
+  const response = await fetch('/rest-auth/registration/', options).catch(handleError);
 
   if(response.ok){
     const data = await response.json().catch(handleError);

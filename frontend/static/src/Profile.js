@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import Cookies from 'js-cookie';
 
-class App extends Component{
+class Profile extends Component{
   constructor(props) {
     super(props);
       this.state = {
@@ -43,14 +43,14 @@ class App extends Component{
     // using formData bc we're sending up JSON & the images. This is a constructor, allows us to write key/value pairs.
     formData.append('avatar', this.state.avatar);
     formData.append('display_name', this.state.display_name);
-    formData.append('user', this.state.user);  // this is hardcoded- admin has id of 1
+    // formData.append('user', this.user);
 
     const options = {
       method: 'POST',
       headers: {
         'X-CSRFToken': Cookies.get('csrftoken'),
       },
-      body: this.state.formData,
+      body: formData,
       //hard coding the above for right now
     }
     const response =  await fetch ('/api/v1/users/profiles/', options);
@@ -76,4 +76,4 @@ class App extends Component{
 }
 }
 
-export default App;
+export default Profile;
