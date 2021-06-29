@@ -90,7 +90,7 @@ async handleLogout(){
     } else if (this.state.selection === 'login') {
       html = <Login handleLogin={this.handleLogin} handleNavigation={this.handleNavigation} />;
     } else {
-      html = <Profile />
+      html = <Profile handleLogout={this.handleLogout} />
     }
 
   return (

@@ -69,6 +69,7 @@ class App extends Component{
         : null
       }
         <button type="submit">Save Profile!</button>
+        <button className="form-button" onClick={this.props.handleLogout}>Logout</button>
     </form>
     </>
   );
