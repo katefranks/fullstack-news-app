@@ -23,14 +23,14 @@ class Login extends React.Component {
 render(){
   return (
     <>
-      <form onSubmit={this.handleSubmit}>
-      <label htmlFor="login">Login:</label>
-        <input placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInput}/>
-        <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleInput}/>
-        <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput}/>
+      <form className="form-login" onSubmit={this.handleSubmit}>
+      <label className="login-label" htmlFor="login">Login:</label>
+        <input className="login-input" placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInput}/>
+        <input className="login-input" type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleInput}/>
+        <input className="login-input" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput}/>
         <button className="submit-button" type="submit">Submit</button>
         </form>
-        <button onClick={() => this.props.handleNavigation('register')}>Create New Account</button>
+        <button className="toggle-register" onClick={() => this.props.handleNavigation('register')}>Create New Account</button>
     </>
   );
 }

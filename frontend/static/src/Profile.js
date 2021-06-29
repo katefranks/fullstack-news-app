@@ -14,6 +14,7 @@ class Profile extends Component{
       this.handleImage = this.handleImage.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleInput(e){
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -56,6 +57,13 @@ class Profile extends Component{
     const response =  await fetch ('/api/v1/users/profiles/', options);
     console.log(response);
   }
+
+  componentDidMount(){
+    fetch('/api/v1/users/profiles/')
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+  }
+
 
   render(){
   return (
