@@ -79,10 +79,10 @@ class Profile extends Component{
       {this.state.data
         ? (
           <div className="user-profile">
-            <p>{this.state.data.display_name}</p>
+            <p className="login-label">{this.state.data.display_name}</p>
             <img className="user-avatar" src={this.state.data.avatar} alt=""/>
             <br/>
-            <button onClick={this.props.handleLogout}>Logout</button>
+            <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
           </div>
         )
       :  <form onSubmit={this.handleSubmit}>
@@ -94,6 +94,7 @@ class Profile extends Component{
               : null
             }
             <button className="submit-button" type="submit" >Save Profile!</button>
+            <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
           </form>
       }
     </>

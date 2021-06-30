@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # passing a pathway to the Accounts Config class. If you don't tell settings about project, then it won't know about it.
     'api.apps.ApiConfig',
     'accounts.apps.AccountsConfig',
+    'articles.apps.ArticlesConfig',
     'frontend.apps.FrontendConfig',
 ]
 
