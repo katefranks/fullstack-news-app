@@ -29,8 +29,8 @@ render(){
         <input className="login-input" type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleInput}/>
         <input className="login-input" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput}/>
         <button className="submit-button" type="submit">Submit</button>
-        </form>
         <button className="toggle-register" onClick={() => this.props.handleNavigation('register')}>Create New Account</button>
+        </form>
     </>
   );
 }

@@ -26,8 +26,8 @@ class Registration extends React.Component {
 render(){
   return(
     <>
-      <form onSubmit={this.handleSubmit}>
-        <label>New User? <br/> Register!</label>
+      <form className="form-login" onSubmit={this.handleSubmit}>
+        <label className="login-label">New User? <br/> Register!</label>
           <input className="login-input" placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInput}/>
         <label></label>
           <input className="login-input" placeholder="email" name="email" type="email" value={this.state.email} onChange={this.handleInput}/>
@@ -36,8 +36,8 @@ render(){
         <label></label>
         <input className="login-input" placeholder="re-type password" type="password" name="password2" value={this.state.password2} onChange={this.handleInput}/>
         <button className="submit-button" type="submit">Submit</button>
+        <button className="toggle-register" onClick={() => this.props.handleNavigation('login') }>Current User Login</button>
       </form>
-      <button className="toggle-register" onClick={() => this.props.handleNavigation('login') }>Current User Login</button>
     </>
   );
 }

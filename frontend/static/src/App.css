@@ -1,12 +1,110 @@
-/* .link{
-  color: black;
-  padding: 10px 20px 10px 20px;
-  background-color: white;
-  border: 2px solid black;
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.link:hover{
+.user-avatar{
+  max-width: 200px;
+}
+
+.avatar-preview{
+  max-width: 200px;
+}
+
+.form-login {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-login{
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.login-label{
+  color: #2B2B2B;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-input{
+  background-color: #35363A;
+  color: #FFF;
+  height: 30px;
+  margin: 10px;
+  border-radius: 20px;
+  border: 1px solid #999999;
+  box-shadow: 2px 2px 5px #292c33;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-input:hover{
+  box-shadow: 4px 4px 5px #292C33;
+  transform: translateY(1px);
+  }
+
+.submit-button{
+  height: 42px;
+  width: 80px;
+  margin-bottom: 100px;
+  background-color: #2B2B2B;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 50%;
+  border: none;
+  margin: 2px;
+  box-shadow: 2px 2px 5px #292C33;
+}
+
+.submit-button:hover{
   cursor: pointer;
-  color: grey;
-  background-color: grey;
-} */
+  box-shadow: 4px 4px 5px #292C33;
+  transform: translateY(1px);
+}
+
+.submit-button:active {
+  transform: translateY(3px) ;
+  /* transform: translateX(1px); */
+}
+
+.toggle-register{
+  height: 70px;
+  width: 120px;
+  margin-bottom: 70px;
+  background-color: #2B2B2B;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 2px 2px 5px #292C33;
+}
+
+.toggle-register:hover{
+  cursor: pointer;
+  box-shadow: 4px 4px 5px #292C33;
+  transform: translateY(1px);
+}
+
+.toggle-register:active {
+  transform: translateY(3px) ;
+}
+
+@media only screen and (max-width: 600px) {
+  .toggle-register{margin-bottom: 15px;}
+}
+
+.user-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

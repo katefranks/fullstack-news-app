@@ -13,7 +13,6 @@ class ProfileListAPIView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
 
 class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = (IsAuthOrReadOnly,)
 

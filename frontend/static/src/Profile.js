@@ -9,10 +9,25 @@ class Profile extends Component{
         display_name: '',
         avatar: null,
         preview: '',
+        // profile_view: '',
       }
       this.handleInput = this.handleInput.bind(this);
       this.handleImage = this.handleImage.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    fetch('/api/v1/users/profiles/user/')
+      .then(response => {
+        if (!response.ok) {
+           throw new Error('Network response was not ok');
+         }
+         return response.json();
+      })
+      .then(data => this.setState({ data }))
+      .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+      });
   }
 
   handleInput(e){
@@ -55,32 +70,34 @@ class Profile extends Component{
       //hard coding the above for right now
     }
     const response =  await fetch ('/api/v1/users/profiles/', options);
-    console.log(response);
+    this.setState({response});
   }
-
-  componentDidMount(){
-    fetch('/api/v1/users/profiles/')
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
-  }
-
 
   render(){
   return (
     <>
-    <form onSubmit={this.handleSubmit}>
-      <input type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
-      <input type="file" name="avatar" onChange={this.handleImage}/>
+      {this.state.data
+        ? (
+          <div className="user-profile">
+            <p>{this.state.data.display_name}</p>
+            <img className="user-avatar" src={this.state.data.avatar} alt=""/>
+            <br/>
+            <button onClick={this.props.handleLogout}>Logout</button>
+          </div>
+        )
+      :  <form onSubmit={this.handleSubmit}>
+            <input type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
+            <input type="file" name="avatar" onChange={this.handleImage}/>
 
-      {this.state.avatar
-        ? <img src={this.state.preview} alt=""/>
-        : null
+            {this.state.avatar
+              ? <img className="avatar-preview" src={this.state.preview} alt=""/>
+              : null
+            }
+            <button className="submit-button" type="submit" >Save Profile!</button>
+          </form>
       }
-        <button type="submit">Save Profile!</button>
-        <button className="form-button" onClick={this.props.handleLogout}>Logout</button>
-    </form>
     </>
-  );
+  )
 }
 }
 
