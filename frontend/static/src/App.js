@@ -97,8 +97,13 @@ render(){
       <button className="nav-bar-button" onClick={() => this.handleNavigation('profile')}>Profile</button>
     </nav>
     <div>
+      {!!Cookies.get('Authorization') && this.state.selection === 'profile' &&
+      <Profile selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout} /> }
 
-      {this.state.selection === 'profile' && <Profile selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout} /> }
+      {!Cookies.get('Authorization') && this.state.selection === 'profile' &&
+      <p>Please Register to create a profile!</p> &&
+      <Registration handleRegistration={this.handleRegistration} handleNavigation={this.handleNavigation} />
+      }
 
       {this.state.selection === 'articles' && <Articles selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout}/>}
 
@@ -112,6 +117,8 @@ render(){
 }
 
 export default App;
+
+// {this.state.selection === 'profile' && <Profile selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout} /> }
 
 //REACT ROUTER:
 // render (){

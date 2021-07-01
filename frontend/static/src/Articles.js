@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import ArticleForm from './ArticleForm'
 import Cookies from 'js-cookie';
 
 class Articles extends Component {
@@ -16,13 +17,24 @@ render(){
 
     return(
       <>
-      <h1>Hi!</h1>
+      <h1>Articles</h1>
+      < ArticleForm />
       </>
     )
   }
 }
 
 export default Articles;
+
+// conditional renderinging to see only article form:
+// <button className="" onClick={() => this.props.handleNavigation('ArticleForm')}>Create Article</button>
+//
+// {this.selection === 'ArticleForm' &&  <ArticleForm />}
+////////
+
+
+
+// handleNavigation={this.props.handleNavigation} selection={this.selection}
 
 // render(){
 //     const articles = this.state.articles.map(article => (

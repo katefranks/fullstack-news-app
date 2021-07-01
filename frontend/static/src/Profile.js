@@ -1,3 +1,10 @@
+// *lifecycle methods:
+//constructor fires immediately (when an instance of a class is called)
+// then render occurs - element gets mounted to dom
+// then componenet did mount fires and b/c setstate is in there it triggers another re-render.
+// anytime you call 'this.set.state' the componenet fires the render method again & updates the page.
+// when the page first loads, for a brief moment 'this.state.data' is false, therefore it flashes the create new profile form, even if a user is logged in. Can add a spinner, can also change styling so that the difference between the 2 views is less jarring.
+
 import { Component } from 'react';
 import './App.css';
 import Cookies from 'js-cookie';
@@ -73,32 +80,33 @@ class Profile extends Component{
     this.setState({response});
   }
 
-  render(){
-  return (
-    <>
-      {this.state.data
-        ? (
-          <div className="user-profile">
-            <p className="login-label">{this.state.data.display_name}</p>
-            <img className="user-avatar" src={this.state.data.avatar} alt=""/>
-            <br/>
-            <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
-          </div>
-        )
-      :  <form onSubmit={this.handleSubmit}>
-            <input type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
-            <input type="file" name="avatar" onChange={this.handleImage}/>
+render(){
+return (
+  <>
+    {this.state.data
+      ? (
+        <div className="user-profile">
+          <p className="login-label">{this.state.data.display_name}</p>
+          <img className="user-avatar" src={this.state.data.avatar} alt=""/>
+          <br/>
+          <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
+        </div>
+      )
+    :  <form onSubmit={this.handleSubmit}>
+          <p className="login-label">Create a Profile!</p>
+          <input type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
+          <input type="file" name="avatar" onChange={this.handleImage}/>
 
-            {this.state.avatar
-              ? <img className="avatar-preview" src={this.state.preview} alt=""/>
-              : null
-            }
-            <button className="submit-button" type="submit" >Save Profile!</button>
-            <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
-          </form>
-      }
-    </>
-  )
+          {this.state.avatar
+            ? <img className="avatar-preview" src={this.state.preview} alt=""/>
+            : null
+          }
+          <button className="submit-button" type="submit" >Save Profile</button>
+          <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
+        </form>
+    }
+  </>
+)
 }
 }
 
