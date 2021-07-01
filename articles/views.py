@@ -4,6 +4,7 @@ from .serializers import ArticleSerializer
 
 class ArticleListAPIView(generics.ListCreateAPIView):
     queryset = Article.objects.all()
+    # queryset- (calls the stored information) = getting ALL of the objects from Article. 
     serializer_class = ArticleSerializer
 
 class ArticleDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
