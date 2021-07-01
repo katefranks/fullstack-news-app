@@ -1,24 +1,45 @@
 import { Component } from 'react';
 import './App.css';
-import ArticleForm from './ArticleForm'
-import Cookies from 'js-cookie';
 
 class Articles extends Component {
   constructor(props){
     super(props);
       this.state = {
         articles: [],
-      }
-    // this.addArticle = this.addArticle.bind(this)
+      };
+
+    // this.handleInput = this.handleInput.bind(this);
+
+  }
+
+  componentDidMount(){
+    fetch('/api/v1/articles/')
+      .then(response => {
+        if (!response.ok) {
+           throw new Error('Network response was not ok');
+         }
+         return response.json();
+      })
+      .then(data => this.setState({ articles: data }))
+      .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+      });
   }
 
 
+
+
 render(){
+  const articles = this.state.articles.map(article => (
+    <li key={article.id}>
+    <p>{article.title}</p>
+    </li>
+  ))
 
     return(
       <>
       <h1>Articles</h1>
-      < ArticleForm />
+      <ul>{articles}</ul>
       </>
     )
   }

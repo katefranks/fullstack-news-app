@@ -6,12 +6,14 @@ import Registration from './Registration';
 import Login from './Login';
 import Profile from './Profile';
 import Articles from './Articles';
+import ArticleForm from './ArticleForm';
 
 class App extends Component{
   constructor(props) {
     super(props);
       this.state = {
-        selection: !! Cookies.get('Authorization') ? 'profile' : 'login',
+        selection: 'login',
+        // selection: !! Cookies.get('Authorization') ? 'profile' : 'login',
         // view: 'articles',
       }
       this.handleLogin = this.handleLogin.bind(this);
@@ -95,6 +97,7 @@ render(){
       <button className="nav-bar-button" onClick={() => this.handleNavigation('login')}>Login</button>
       <button className="nav-bar-button" onClick={() => this.handleNavigation('articles')}>Articles</button>
       <button className="nav-bar-button" onClick={() => this.handleNavigation('profile')}>Profile</button>
+      <button className="nav-bar-button" onClick={() => this.handleNavigation('article-form')}>Add Article</button>
     </nav>
     <div>
       {!!Cookies.get('Authorization') && this.state.selection === 'profile' &&
@@ -110,6 +113,8 @@ render(){
       {this.state.selection === 'login' && <Login handleLogin={this.handleLogin} handleNavigation={this.handleNavigation} />}
 
       {this.state.selection === 'registration' && <Registration handleRegistration={this.handleRegistration} handleNavigation={this.handleNavigation} />}
+
+      {this.state.selection === 'article-form' && <ArticleForm  />}
     </div>
     </>
   );

@@ -74,7 +74,6 @@ class Profile extends Component{
         'X-CSRFToken': Cookies.get('csrftoken'),
       },
       body: formData,
-      //hard coding the above for right now
     }
     const response =  await fetch ('/api/v1/users/profiles/', options);
     this.setState({response});

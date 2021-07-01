@@ -95,6 +95,15 @@ nav {
   margin-bottom: 70px;
 }
 
+.article-form-container{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 
 @media only screen and (max-width: 600px) {
   .toggle-register{margin-bottom: 15px;}
