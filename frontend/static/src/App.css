@@ -18,7 +18,6 @@ button{
   margin: 2px;
   box-shadow: 2px 2px 5px #292C33;
   height: 42px;
-  /* width: 80px; */
 }
 
 button:hover{
@@ -29,7 +28,6 @@ button:hover{
 
 button:active {
   transform: translateY(3px) ;
-  /* transform: translateX(1px); */
 }
 
 nav {

@@ -8,6 +8,7 @@
 import { Component } from 'react';
 import './App.css';
 import Cookies from 'js-cookie';
+import ProfileDetail from './ProfileDetail';
 
 class Profile extends Component{
   constructor(props) {

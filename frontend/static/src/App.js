@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './App.css';
 import Cookies from 'js-cookie';
 import Registration from './Registration';
@@ -8,14 +8,11 @@ import Profile from './Profile';
 import Articles from './Articles';
 import ArticleForm from './ArticleForm';
 
-
 class App extends Component{
   constructor(props) {
     super(props);
       this.state = {
         selection: 'login',
-        // selection: !! Cookies.get('Authorization') ? 'profile' : 'login',
-        // view: 'articles',
       }
       this.handleLogin = this.handleLogin.bind(this);
       this.handleLogout = this.handleLogout.bind(this);
@@ -90,9 +87,6 @@ async handleLogout(){
 render(){
   return (
     <>
-    <div>
-
-    </div>
     <nav>
       <button className="nav-bar-button" onClick={() => this.handleNavigation('registration')}>Registration</button>
       <button className="nav-bar-button" onClick={() => this.handleNavigation('login')}>Login</button>
@@ -125,9 +119,6 @@ render(){
 
 export default App;
 
-// {this.state.selection === 'article-detail' && <ArticleDetail />}
-
-// {this.state.selection === 'profile' && <Profile selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout} /> }
 
 //REACT ROUTER:
 // render (){
