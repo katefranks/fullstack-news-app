@@ -91,18 +91,21 @@ return (
           <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
         </div>
       )
-    :  <form onSubmit={this.handleSubmit}>
-          <p className="login-label">Create a Profile!</p>
-          <input type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
-          <input type="file" name="avatar" onChange={this.handleImage}/>
+    :  <div>
+        <form className="create-profile-form" onSubmit={this.handleSubmit}>
+            <p className="login-label">Create a Profile!</p>
+            <input placeholder="Displayname" type="text" name="display_name" value={this.state.display_name} onChange={this.handleInput}/>
+            <br/>
+            <input type="file" name="avatar" onChange={this.handleImage}/>
 
-          {this.state.avatar
-            ? <img className="avatar-preview" src={this.state.preview} alt=""/>
-            : null
-          }
-          <button className="submit-button" type="submit" >Save Profile</button>
-          <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
-        </form>
+            {this.state.avatar
+              ? <img className="avatar-preview" src={this.state.preview} alt=""/>
+              : null
+            }
+            <button className="submit-button" type="submit" >Save Profile</button>
+            <button className="submit-button" onClick={this.props.handleLogout}>Logout</button>
+          </form>
+        </div>
     }
   </>
 )

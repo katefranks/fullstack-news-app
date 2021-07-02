@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+li{
+  list-style-type: none;
+}
+
 button{
   background-color: #2B2B2B;
   color: #FFF;
@@ -113,4 +117,15 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.create-profile-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.articles-container{
+  text-align: center;
 }

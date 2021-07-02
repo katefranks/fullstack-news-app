@@ -1,14 +1,16 @@
 import { Component } from 'react';
 import './App.css';
+import ArticleDetail from './ArticleDetail';
 
 class Articles extends Component {
   constructor(props){
     super(props);
       this.state = {
         articles: [],
+        selection: 'null',
       };
 
-    // this.handleInput = this.handleInput.bind(this);
+    this.selectArticle = this.selectArticle.bind(this);
 
   }
 
@@ -25,27 +27,54 @@ class Articles extends Component {
         console.error('There has been a problem with your fetch operation:', error);
       });
   }
-
-
-
-
-render(){
-  const articles = this.state.articles.map(article => (
-    <li key={article.id}>
-    <p>{article.title}</p>
-    </li>
-  ))
-
-    return(
-      <>
-      <h1>Articles</h1>
-      <ul>{articles}</ul>
-      </>
-    )
+  selectArticle(selection){
+    this.setState({ selection });
   }
-}
 
-export default Articles;
+  render(){
+    const articles = this.state.articles.map(article => (
+      <ArticleDetail key={article.id} article={article} editArticle={this.editArticle}/>
+    ))
+
+      return(
+        <>
+        <div className="articles-container">
+          <h1>Articles</h1>
+          <ul>{articles}</ul>
+        </div>
+        </>
+      )
+    }
+  }
+
+  export default Articles;
+
+// Code before adding message detail! 7/2/21
+// render(){
+//   const articles = this.state.articles.map(article => (
+//     <li key={article.id} >
+//       <h2>{article.title}</h2>
+//       <p>Author: {article.author}</p>
+//       <p>{article.body}</p>
+//     </li>
+//   ))
+//
+//     return(
+//       <>
+//       <div className="articles-container">
+//         <h1>Articles</h1>
+//         <ul>{articles}</ul>
+//       </div>
+//       </>
+//     )
+//   }
+// }
+//
+// export default Articles;
+
+// onClick={() => this.selectArticle('article-content')}
+// this.state.selection === 'article-content' &&
+
 
 // conditional renderinging to see only article form:
 // <button className="" onClick={() => this.props.handleNavigation('ArticleForm')}>Create Article</button>

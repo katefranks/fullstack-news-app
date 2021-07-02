@@ -8,6 +8,7 @@ import Profile from './Profile';
 import Articles from './Articles';
 import ArticleForm from './ArticleForm';
 
+
 class App extends Component{
   constructor(props) {
     super(props);
@@ -115,6 +116,7 @@ render(){
       {this.state.selection === 'registration' && <Registration handleRegistration={this.handleRegistration} handleNavigation={this.handleNavigation} />}
 
       {this.state.selection === 'article-form' && <ArticleForm  />}
+
     </div>
     </>
   );
@@ -122,6 +124,8 @@ render(){
 }
 
 export default App;
+
+// {this.state.selection === 'article-detail' && <ArticleDetail />}
 
 // {this.state.selection === 'profile' && <Profile selection={this.state.selection} handleNavigation={this.handleNavigation} handleLogin={this.handleLogin} handleLogout={this.handleLogout} /> }
 
